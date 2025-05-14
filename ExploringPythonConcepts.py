@@ -1,4 +1,6 @@
 # Assignment: Exploring Python Concepts
+# note that you'd need to comment out each task one at a time for
+# them to work as needed
 # Task 1 - Variables: Your First Python Intro
 
 def Assignment1part1():
@@ -14,8 +16,6 @@ def Assignment1part1():
 
 print(Assignment1part1())
 
-
-# Assignment: Exploring Python Concepts
 # Task 2 - Operators: Playing with Numbers
 
 def Assignment1part2():
@@ -31,8 +31,6 @@ def Assignment1part2():
 
 Assignment1part2()
 
-
-# Assignment: Exploring Python Concepts
 # Task 3 - Conditional Statements: The Number Checker
 
 def Assignment1part3():
