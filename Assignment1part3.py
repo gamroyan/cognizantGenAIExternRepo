@@ -1,3 +1,6 @@
+# Assignment: Exploring Python Concepts
+# Task 3 - Conditional Statements: The Number Checker
+
 def Assignment1part3():
     userinput = input("Input a number: ")
     num = int(userinput) # type cast input into integer
