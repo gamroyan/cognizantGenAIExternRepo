@@ -1,3 +1,6 @@
+# Project: Eligible Elector
+# Ask the user's age, then decides the eligibility based on that
+
 def EligibleElector():
     age = int(input("How old are you? "))
 
