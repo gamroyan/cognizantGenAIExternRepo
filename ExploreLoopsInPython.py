@@ -16,7 +16,7 @@ countDown()
 
 # Task 2 - Multiplication Table with for Loops
 def multiplicationTable():
-    num = int(input("Eneter a number: "))
+    num = int(input("Enter a number: "))
     for i in range(1, 11):
         print (str(num) + " x " + str(i) + " =", num * i)
         i += 1
