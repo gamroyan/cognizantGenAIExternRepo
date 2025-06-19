@@ -1,5 +1,5 @@
 # Fine-Tuning BERT Project with HuggingFace
-Goal: to fine-tune, debug, and evaluate a BERT model for various natural language processing (NLP) tasks.
+This project fine-tunes a ```bert-base-uncased``` model for binary sentiment classification on the IMDb movie review dataset using the HuggingFace Transformers library.
 
-### Part 1: Fine-Tuning BERT
+## Part 1: Fine-Tuning BERT
 **NLP Task:** sentiment analysis
