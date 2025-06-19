@@ -3,3 +3,13 @@ This project fine-tunes a ```bert-base-uncased``` model for binary sentiment cla
 
 ## Part 1: Fine-Tuning BERT
 **NLP Task:** sentiment analysis
+
+**Model:** ```BertForSequenceClassification``` for binary classification
+
+**Training Arguments:** set learning rate, batch size, number of epochs, and logging settings.
+
+**Training:** Used Hugging Face's ```Trainer``` API for training and evaluation of the model.
+
+### Files
+- ```fine_tuning_bert.py```: main script to tokenize data, fine-tune BERT, and evaluate the model.
+- ```results/```: contains training checkpoints and logs
