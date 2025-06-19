@@ -13,3 +13,12 @@ This project fine-tunes a ```bert-base-uncased``` model for binary sentiment cla
 ### Files
 - ```fine_tuning_bert.py```: main script to tokenize data, fine-tune BERT, and evaluate the model.
 - ```results/```: contains training checkpoints and logs
+
+### Results
+**TO-DO
+
+## Part 2: Debugging Issues
+
+## Part 3: Evaluating the Model
+
+## Part 4: Creative Application
