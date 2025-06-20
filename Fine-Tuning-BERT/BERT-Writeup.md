@@ -26,7 +26,7 @@ Logging and checkpoint saving enabled every 10 steps
 ### Results
 Each entry (checkpoints) in ```results``` gives a snapshot of training at a particular step.
 
-The model was fine-tuned for 3 epochs, reaching a total of 375 training steps. As we can see through the logs, loss steadily declined from an initial value of 0.6997 to a final low of 0.0843 at step 280, with minor fluctuations in later stages. The lowest loss was reached just past the 2-epoch mark, after which loss values hovered in the 0.1–0.2 range, highlighting confident and likely correct predictions.
+The model was fine-tuned for 3 epochs, reaching a total of 375 training steps. As we can see through the logs, loss steadily declined from an initial value of 0.6997 to a final low of 0.0843 at step 280, with minor fluctuations in later stages. The lowest loss was reached just past the 2-epoch mark, after which loss values hovered in the 0.1–0.2 range. This shows that the model was likely making confident and correct predicitons around this time.
 
 **Loss Projection (sampled from a few steps):**
 |Step|Epoch|Loss|
@@ -40,7 +40,7 @@ The model was fine-tuned for 3 epochs, reaching a total of 375 training steps. A
 |280|2.24|0.0843 (lowest)|
 |370|2.96|0.1228|
 
-The learning rate followed a linear decay schedule, starting at 1.95e-5 to 3.2e-7 by the final step. Gradient norms stayed mostly within expected bounds, though some spikes were observed (e.g. 15.03 at step 70), most likely corresponding to noisier batches.
+The learning rate followed a linear decay schedule, starting at 1.95e-5 to 3.2e-7 by the final step. With a learning rate that decreased over the course of training, the model was able to explore more broadly initially, then fine-tune carefully later on. Gradient norms stayed mostly within expected bounds, but some spikes were observed (e.g. 15.03 at step 70) which were most likely corresponding to noisier batches.
 
 Overall, the training progression shows that the model learned effectively. The results support the decision to train for only approximately 2–3 epochs since most of the performance gains occurred early in training and slowly leveled out during the 3-epoch mark.
 
