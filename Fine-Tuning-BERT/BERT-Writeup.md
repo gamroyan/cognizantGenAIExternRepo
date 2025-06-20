@@ -53,11 +53,19 @@ Overall, the training progression shows that the model learned effectively. The 
 ## Part 2: Debugging Issues
 
 ### Identifying an Issue:
-During the early stagtes of training, the model showed expected learning behavior. However, past the 2nd epoch I noticed a few issues. I noticed between steps 250-375 there were many fluctuations in loss (from 0.0843 to ~0.22), which suggested the model might be overfitting, since it might've been learning the provided data too well. There were also occasional spikes in the gradient norms, like 15.03 at step 70, which I also brought up in the results. None of the evaluation metrics like accuracy were improving significantly after epoch 2 even though the model was still being trained.
+During the early stages of training, the model showed expected learning behavior. However, past the 2nd epoch I noticed a few issues. I noticed between steps 250-375 there were many fluctuations in loss (from 0.0843 to ~0.22), which suggested the model might be overfitting, since it might've been learning the dataset too well. There were also occasional spikes in the gradient norms, like 15.03 at step 70, which I also brought up in the results. Even though the model was still being trained, the evaluation metrics like accuracy were improving significantly after epoch 2.
 
-After reviewing the ```trainer_state.json``` logs, I observed that loss began to flatten or fluctuate significantly near the end of epoch 2. Gradient spikes aligned with these fluctuations. This suggests that the model might've started to memorize examples rather than generalize answers.
+After reviewing the ```trainer_state.json``` logs, I noticed that loss began to flatten or fluctuate significantly near the end of epoch 2. Gradient spikes aligned with these fluctuations. This suggests that the model might've started to memorize examples rather than generalize answers.
 
 ### Debugging:
+To address these inefficiencies and overfitting, I:
+- Reduced the number of epochs from 3 to 2 in a second run
+- Experimented with reducing batch size from 16 to 8 in low-memory environments to avoid training instability
+- Tried increasing weight decay slightly from 0.01 to 0.05 in another run to encourage the model to stay general and not overfit the training data.
+
+### Results:
+After reducing the number of epochs to 2, the training finished faster. Similar to the initial run, loss still declined and stabilized around 0.09-0.12. Overall, the model still learned most of what it had earlier even though it only ran through 2 epochs. There was no performance drop compared to 3 epochs. This also reduced the risk of overfitting. So shortening training time improved the model's generalization and training efficiency.
+
 
 ## Part 3: Evaluating the Model
 
