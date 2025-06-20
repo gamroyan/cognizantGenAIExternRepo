@@ -2,20 +2,45 @@
 This project fine-tunes a ```bert-base-uncased``` model for binary sentiment classification on the IMDb movie review dataset using the HuggingFace Transformers library.
 
 ## Part 1: Fine-Tuning BERT
-**NLP Task:** sentiment analysis
+**NLP Task:** sentiment analysis (Positive vs. Negative IMDb Movie Reviews)
 
 **Model:** ```BertForSequenceClassification``` for binary classification
 
-**Training Arguments:** specified hyperparameters like learning rate, batch size, number of epochs, and logging settings.
+**Dataset:** IMDb (via Hugging Face Datasets library)
+
+**Key Hyperparameters:**
+- Batch size: 16
+- Learning rate: 2e-5
+- Epochs: 3
+- Evaluation strategy: per epoch
+- Weight decay: 0.01
+
+Logging and checkpoint saving enabled every 10 steps
 
 **Training:** Used Hugging Face's ```Trainer``` API to set up a training loop for training and evaluation of the model.
 
 ### Files
 - ```fine_tuning_bert.py```: main script to tokenize data, fine-tune BERT, and evaluate the model.
-- ```results/```: contains training checkpoints and logs
+- ```results/```: contains training checkpoints and logs (full directory is ```.gitignored``` becuase of size. I pulled a few example checkpoints' trainer states for analysis)
 
 ### Results
-**TO-DO
+Each entry in ```results``` gives a snapshot of training at a particular step (checkpoint).
+
+The model was fine-tuned for 3 epochs, reaching a total of 375 training steps. As we can see through the logs, loss steadily declined from an initial value of 0.6997 to a final low of 0.0843 at step 280, with minor fluctuations in later stages. The lowest loss was reached just past the 2-epoch mark, after which loss values hovered in the 0.1–0.2 range, indicating confident and likely correct predictions.
+
+**Loss Projection (sampled from key steps):**
+|Step|Epoch|Loss|
+|---|---|---|
+|10|0.08|0.6997|
+|50|0.40|0.4242|
+|100|0.80|0.4233|
+|150|1.20|0.2240|
+|200|1.60|0.2777|
+|250|2.00|0.2279|
+|280|2.24|0.0843 (lowest)|
+|370|2.96|0.1228|
+
+The learning rate followed a linear decay schedule, starting at 1.95e-5 to 3.2e-7 by the final step. Gradient norms stayed mostly within expected bounds, though some spikes were observed (e.g. 15.03 at step 70), most likely corresponding to noisier batches.
 
 ## Part 2: Debugging Issues
 
