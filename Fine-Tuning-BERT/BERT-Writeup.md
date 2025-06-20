@@ -52,6 +52,13 @@ Overall, the training progression shows that the model learned effectively. The 
 
 ## Part 2: Debugging Issues
 
+### Identifying an Issue:
+During the early stagtes of training, the model showed expected learning behavior. However, past the 2nd epoch I noticed a few issues. I noticed between steps 250-375 there were many fluctuations in loss (from 0.0843 to ~0.22), which suggested the model might be overfitting, since it might've been learning the provided data too well. There were also occasional spikes in the gradient norms, like 15.03 at step 70, which I also brought up in the results. None of the evaluation metrics like accuracy were improving significantly after epoch 2 even though the model was still being trained.
+
+After reviewing the ```trainer_state.json``` logs, I observed that loss began to flatten or fluctuate significantly near the end of epoch 2. Gradient spikes aligned with these fluctuations. This suggests that the model might've started to memorize examples rather than generalize answers.
+
+### Debugging:
+
 ## Part 3: Evaluating the Model
 
 ## Part 4: Creative Application
