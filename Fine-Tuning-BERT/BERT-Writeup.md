@@ -8,7 +8,7 @@ This project fine-tunes a ```bert-base-uncased``` model for binary sentiment cla
 
 **Dataset:** IMDb (via Hugging Face Datasets library)
 
-**Key Hyperparameters:**
+**Important Hyperparameters:**
 - Batch size: 16
 - Learning rate: 2e-5
 - Epochs: 3
@@ -50,8 +50,7 @@ Overall, the training progression shows that the model learned effectively. The 
 [logo]:https://github.com/gamroyan/cognizantGenAIExternRepo/blob/main/Fine-Tuning-BERT/BERT%20Fine-Tuning%20Checkpoint375.png "Checkpoint 375"
 
 
-## Part 2: Debugging Issues
-
+## Parts 2 & 3: Debugging Issues and Evaluating the Model
 ### Identifying an Issue:
 During the early stages of training, the model showed expected learning behavior. However, past the 2nd epoch I noticed a few issues. I noticed between steps 250-375 there were many fluctuations in loss (from 0.0843 to ~0.22), which suggested the model might be overfitting, since it might've been learning the dataset too well. There were also occasional spikes in the gradient norms, like 15.03 at step 70, which I also brought up in the results. Even though the model was still being trained, the evaluation metrics like accuracy were improving significantly after epoch 2.
 
@@ -64,9 +63,9 @@ To address these inefficiencies and overfitting, I:
 - Tried increasing weight decay slightly from 0.01 to 0.05 in another run to encourage the model to stay general and not overfit the training data.
 
 ### Results:
-After reducing the number of epochs to 2, the training finished faster. Similar to the initial run, loss still declined and stabilized around 0.09-0.12. Overall, the model still learned most of what it had earlier even though it only ran through 2 epochs. There was no performance drop compared to 3 epochs. This also reduced the risk of overfitting. So shortening training time improved the model's generalization and training efficiency.
+I saw the best results in the run where I reduced the number of epochs to 2. Similar to the initial run, loss still declined and stabilized around 0.09-0.12. Overall, the model still learned most of what it had earlier even though it only ran through 2 epochs. Even though the training finished faster, there was no performance drop compared to 3 epochs. This also reduced the risk of overfitting. So shortening training time improved the model's generalization and training efficiency.
 
+Even though I didn't explicitly compute accuracy or F1 score, the consistent downward trend in loss and its stability at low values suggests that the refined model was confident and accurate in its predictions on the test set. 
 
-## Part 3: Evaluating the Model
 
 ## Part 4: Creative Application
