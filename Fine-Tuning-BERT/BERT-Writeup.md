@@ -73,6 +73,7 @@ A creative NLP task my IMDb sentiment analysis tool could help automate is autom
 
 This kind of system could be used by customer support teams to identify users having bad experiences, track the performance of newer shows, and highlight top-rated content based on more positive reviews.
 
-To stimulate a more efficient, production-ready model, I experimented with the ```distilibert-base-uncased``` BERT variant. Although it's performance was a little worse than the original ```bert-based-uncased```, it trained faster and used much less memory. This makes it better suited for real-time applications, where speed and resource constraints matter.
+To stimulate a more efficient, production-ready model, I experimented with the ```distilibert-base-uncased``` BERT variant. After doing a lot of research, I decided this would be the best alternative since it had a faster inference and requires less compute to train. Although it's performance was a little poorer than the original ```bert-based-uncased```, it trained faster and used much less memory. This makes it better suited for real-time applications, where speed and resource constraints matter.
 
 ### Fine-Tuning this BERT Model
+As seen in ```DistiliBERT-fine-tuning.py```, the main differences from the original model is how I adjusted training parameters for efficiency. With a shorter max sequence length and fewer (2) epochs, the training time was much more efficient and the model was still accurate. Using the same ```bert-base-uncased``` model would still work, but the ```distilibert-base-uncased``` was a practical alternative which I favored for this project.
