@@ -71,8 +71,8 @@ Even though I didn't explicitly compute accuracy or F1 score, the consistent dow
 ## Part 4: Creative Application
 For the creative application, my IMDb sentiment analysis tool could be used to automatically classify customer reviews on a streaming platform (like Netflix or Hulu) to surface viewer sentiment and flag negative feedback in real time.
 
-This kind of system could be used by customer support teams to identify users having bad experiences, track the performance of newer showss, and highlight top-rated content based on more positive reviews.
+This kind of system could be used by customer support teams to identify users having bad experiences, track the performance of newer shows, and highlight top-rated content based on more positive reviews.
 
-To stimulate a more efficient, production-ready model, I experimented with the ```distilibert-base-uncased``` BERT variant. Although it's performance was slightly lower than the ```bert-based-uncased```, it trained faster and used much less memory. This makes it better-suited for real-time applications, where speed and resource constraints matter.
+To stimulate a more efficient, production-ready model, I experimented with the ```distilibert-base-uncased``` BERT variant. Although it's performance was a little worse than the original ```bert-based-uncased```, it trained faster and used much less memory. This makes it better suited for real-time applications, where speed and resource constraints matter.
 
 ### Fine-Tuning this BERT Model
