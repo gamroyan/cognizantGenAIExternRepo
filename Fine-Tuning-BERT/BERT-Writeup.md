@@ -69,7 +69,7 @@ Even though I didn't explicitly compute accuracy or F1 score, the consistent dow
 
 
 ## Part 4: Creative Application
-For the creative application, my IMDb sentiment analysis tool could be used to automatically classify customer reviews on a streaming platform (like Netflix or Hulu) to surface viewer sentiment and flag negative feedback in real time.
+A creative NLP task my IMDb sentiment analysis tool could help automate is automatically classifying customer reviews on a streaming platform (like Netflix or Hulu) to surface viewer sentiment and flag negative feedback in real time.
 
 This kind of system could be used by customer support teams to identify users having bad experiences, track the performance of newer shows, and highlight top-rated content based on more positive reviews.
 
