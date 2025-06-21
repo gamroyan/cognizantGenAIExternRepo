@@ -54,7 +54,7 @@ Overall, the training progression shows that the model learned effectively. The 
 ### Identifying an Issue:
 During the early stages of training, the model showed expected learning behavior. However, past the 2nd epoch I noticed a few issues. I noticed between steps 250-375 there were many fluctuations in loss (from 0.0843 to ~0.22), which suggested the model might be overfitting, since it might've been learning the dataset too well. There were also occasional spikes in the gradient norms, like 15.03 at step 70, which I also brought up in the results. Even though the model was still being trained, the evaluation metrics like accuracy were improving significantly after epoch 2.
 
-After reviewing the ```trainer_state.json``` logs, I noticed that loss began to flatten or fluctuate significantly near the end of epoch 2. Gradient spikes aligned with these fluctuations. This suggests that the model might've started to memorize examples rather than generalize answers.
+After reviewing the ```trainer_state.json``` logs, I noticed that loss began to flatten or fluctuate significantly near the end of epoch 2. Gradient spikes aligned with these fluctuations. This suggests that the model might've started to memorize examples rather than generalize answers. Also, I noticed that the logs stored in ```results``` took up a lot of memory, which could cause a lot of difficulty in production. This could be solved by using another BERT variant that uses less memory.
 
 ### Debugging:
 To address these inefficiencies and overfitting, I:
@@ -69,3 +69,10 @@ Even though I didn't explicitly compute accuracy or F1 score, the consistent dow
 
 
 ## Part 4: Creative Application
+For the creative application, my IMDb sentiment analysis tool could be used to automatically classify customer reviews on a streaming platform (like Netflix or Hulu) to surface viewer sentiment and flag negative feedback in real time.
+
+This kind of system could be used by customer support teams to identify users having bad experiences, track the performance of newer showss, and highlight top-rated content based on more positive reviews.
+
+To stimulate a more efficient, production-ready model, I experimented with the ```distilibert-base-uncased``` BERT variant. Although it's performance was slightly lower than the ```bert-based-uncased```, it trained faster and used much less memory. This makes it better-suited for real-time applications, where speed and resource constraints matter.
+
+### Fine-Tuning this BERT Model
